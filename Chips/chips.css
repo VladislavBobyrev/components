@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/*  chipsSegments-controls  */
+.chips {
+  --primary: #ffffff;
+  --secondary: #64738e;
+  --brand-10: #e9eeff;
+  --brand-60: #254ac7;
+  --brand-80: #1c379a;
+  --focused: #b4caf6;
+  --focus-border: 2px solid #b4caf6;
+  --border: #dbe5f3;
+  --text-disabled: #cfdcee;
+
+
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Скрываем radio */
+.chips-control__input {
+  position: absolute;
+  opacity: 0;
+  /*  Добавил по пикселю для корректной работы скринридеров */
+  width: 1px;
+  height: 1px;
+}
+
+.chips__span {
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  border-radius: 8px;
+  color: var(--secondary);
+  outline: 1px solid var(--border);
+}
+
+.chips-control__input:focus-visible + .chips__span {
+  position: relative;
+  z-index: 1;
+  color: var(--brand-80);
+  outline: 1px solid var(--focus-border);
+}
+
+
+.chips-control__input:checked + .chips__span {
+  background-color: var(--brand-60);
+  outline: 1px solid transparent;
+  color: var(--primary);
+}
+
+.chips-control__input[disabled] + .chips__span {
+  outline: 1px solid var(--brand-10);
+  color: var(--text-disabled);
+}
+
+/* 
+.chips-control__input[disabled]:checked + .chips__span {
+  background-color: var(--brand-10);
+  outline: 1px solid transparent;
+}
+
+.chips-control__input:hover + .chips__span {
+  color: var(--brand-80);
+  outline: 1px solid var(--brand-80);
+} */

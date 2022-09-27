@@ -1,0 +1,63 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/*  Segments-controls  */
+.segments-controls {
+  --primary: #FFFFFF;
+  --secondary: #f2f5fa;
+  --brand-50: #4c6cdd;
+  --brand-60: #254ac7;
+  --brand-80: #1c379a;
+  --brand-90: #072aa9;
+  --focus-border: 2px solid #B4CAF6;
+
+  position: relative;
+  display: inline-flex;
+}
+
+/* Скрываем radio */
+.segments-control__input {
+  position: absolute;
+  opacity: 0;
+  /*  Добавил по пикселю для корректной работы скринридеров */
+  width: 1px;
+  height: 1px;
+}
+
+.segments-controls__span {
+  padding: 10px 33.5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  background-color: var(--secondary);
+  color: var(--brand-60);
+  outline: 1px solid var(--brand-50);
+}
+.segments-controls__span_border-left {
+  border-radius: 4px 0px 0px 4px;
+}
+.segments-controls__span_border-right {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.segments-control__input:hover + .segments-controls__span {
+  color: var(--brand-80);
+  outline: 1px solid var(--brand-80);
+}
+
+.segments-control__input:focus-visible + .segments-controls__span {
+  position: relative;
+  z-index: 1;
+  color: var(--brand-80);
+  outline: var(--focus-border);
+}
+
+.segments-control__input:checked + .segments-controls__span {
+  background-color: var(--brand-60);
+  color:var(--primary);
+}
+

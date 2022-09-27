@@ -1,0 +1,84 @@
+/*  switch  */
+.switch {
+  /* Переменные */
+  --primary: #FFFFFF;
+  --gray-40: #A2B6DB;
+  --gray-60: #7488AD;
+  --brand-10: #E9EEFF;
+  --brand-40: #ADC0FF;
+  --brand-60: #254AC7;
+  --brand-80: #1C379A;
+  --focused: #B4CAF6;
+  --focus-border: 2px solid #B4CAF6;
+
+
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+/* Скрываем checkbox */
+.switch__input {
+  opacity: 0;
+  /*  Добавил по пикселю для корректной работы скринридеров */
+  width: 1px;
+  height: 1px;
+}
+
+/* Слайдер */
+.switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--gray-40);
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 10px;
+}
+
+.switch__slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: var(--primary);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.switch__input:checked + .switch__slider:before {
+  transform: translate(100%, -50%);
+}
+
+.switch__input:hover + .switch__slider {
+  background-color: var(--gray-60);
+}
+
+.switch__input:checked + .switch__slider {
+  background-color: var(--brand-60);
+}
+
+.switch__input:checked:hover + .switch__slider {
+  background-color: var(--brand-80);
+}
+
+.switch__input:focus-visible + .switch__slider {
+  outline: var(--focus-border);
+}
+
+.switch__input[disabled] + .switch__slider {
+  background-color: var(--brand-10);
+}
+
+.switch__input[disabled]:checked + .switch__slider {
+  background-color: var(--brand-40);
+}
+

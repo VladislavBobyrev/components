@@ -1,0 +1,88 @@
+.form-radio {
+  --primary: #ffffff;
+  --secondary: #64738e;
+  --border: #b4caf6;
+  --brand-10: #e9eeff;
+  --brand-60: #254ac7;
+  --brand-50: #4c6cdd;
+  --focused: #b4caf6;
+  --focus-border: 2px solid #b4caf6;
+  --disabled-border: #e5eeff;
+  --disabled-text: #cfdcee;
+}
+
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  /*  Добавил по пикселю для корректной работы скринридеров */
+  width: 1px;
+  height: 1px;
+}
+
+.radio__circle {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 28px;
+  line-height: 24px;
+  color: var(--secondary);
+}
+
+.radio__circle::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border);
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.radio__circle::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+.radio__input:checked + .radio__circle:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--brand-60);
+}
+
+.radio__input:not(:checked) + .radio__circle:after {
+  opacity: 0;
+}
+
+.radio__circle:hover::before {
+  border: 1px solid var(--brand-50);
+}
+
+.radio__input:checked:hover + .radio__circle:after {
+  background: var(--brand-50);
+}
+
+.radio__input:focus-visible + .radio__circle::before {
+  outline: 2px solid var(--focused);
+  border: 1px solid transparent;
+}
+
+.radio__input[disabled] + .radio__circle:before {
+  border: 1px solid var(--disabled-border);
+}
+
+.radio__input[disabled] + .radio__circle {
+  color: var(--disabled-text);
+}
+
+.radio__input[disabled]:checked + .radio__circle::after {
+  background: var(--brand-10);
+}

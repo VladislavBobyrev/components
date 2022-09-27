@@ -1,0 +1,69 @@
+/* Вспомогательный класс для родительского элемента
+делает статус серого цвета для лучшей доступности в светлых темах
+по умолчанию статус белого цвета */
+.for-status-tag_gray{
+  --statys-tag-background: #F0F2F6;
+}
+
+
+/* Модификаторы для цвета индикатора */
+.status-tag_ready {
+  --indicator: #20b866;
+}
+.status-tag_in-procces {
+  --indicator: #ffc943;
+}
+.status-tag_queue {
+  --indicator: #7da7fa;
+}
+
+
+.status-tag {
+  color: #7488ad;
+  background: var(--statys-tag-background, #fff);
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.status-tag__indicator {
+  border-radius: 50%;
+  background: var(--indicator);
+}
+
+
+/* MEDIA
+======================================== */
+@media screen and (max-width: 884px) {
+  .status-tag {
+    padding: 4px 12px;
+    font-size: 12px;
+    line-height: 16px;
+    gap: 6px;
+  }
+  .status-tag__indicator{
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media screen and (min-width: 884px) {
+  .status-tag {
+    padding: 6px 12px 6px 13px;
+    font-size: 14px;
+    line-height: 20px;
+    gap: 8px;
+  }
+
+  .status-tag__indicator{
+    width: 8px;
+    height: 8 px;
+  }
+}
+
+/* Класс для примера. Задает отделения тэгов и серый фон    */
+.gray{
+  background: #F0F2F6;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
