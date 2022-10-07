@@ -1,0 +1,91 @@
+.form-radio {
+  --primary: #ffffff;
+  --secondary: #64738e;
+  --border: #b4f6b7;
+  --brand-10: #e9eeff;
+  --brand-60: #25c74d;
+  --brand-50: #4edd4c;
+  --focused: #b4f6c2;
+  --focus-border: 2px solid #b4f6c0;
+  --disabled-border: #e5ffea;
+  --disabled-text: #cfeed7;
+}
+
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  /*  Добавил по пикселю для корректной работы скринридеров */
+  width: 1px;
+  height: 1px;
+}
+
+.radio__circle {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 3rem;
+  line-height: 2.5rem;
+  color: var(--secondary);
+}
+
+.radio__circle::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #999;
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+.radio__circle::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 1.2rem;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+.radio__input:checked + .radio__circle:after {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.707 3.293a1 1 0 0 1 0 1.414l-7 7a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l6.293-6.293a1 1 0 0 1 1.414 0Z' fill='%233dd445'/%3e%3c/svg%3e");
+}
+.radio__input:hover + .radio__circle:after {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url(./icon/check_white.svg);
+}
+
+.radio__input:checked:hover + .radio__circle:after {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.707 3.293a1 1 0 0 1 0 1.414l-7 7a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l6.293-6.293a1 1 0 0 1 1.414 0Z' fill='%233dd445'/%3e%3c/svg%3e");
+}
+
+.radio__input:checked + .radio__circle::before {
+  border: 1px solid var(--brand-50);
+}
+
+.radio__input:focus-visible + .radio__circle::before {
+  outline: 2px solid #999;
+  border: 1px solid transparent;
+}
+
+.radio__input[disabled] + .radio__circle:before {
+  border: 1px solid var(--disabled-border);
+}
+
+.radio__input[disabled] + .radio__circle {
+  color: var(--disabled-text);
+}
+
+.radio__input[disabled]:checked + .radio__circle::after {
+  background: var(--brand-10);
+}
