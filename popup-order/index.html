@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body{
+      margin: 0;
+      background: rgb(44, 63, 141);
+    }
+  </style>
+</head>
+<body>
+  <div class="popup active">
+    <div class="popup-background"></div>
+    <section class="popup-content">
+      <h4 class="h4">заявка принята</h4>
+      <div class="popup-circle circle circle_bottom-rigth-border">
+        <div class="popup-svg">
+          <svg class="svg">
+            <use xlink:href="#success"></use>
+          </svg>
+        </div>
+      </div>
+      <p class="popup-text">Ваша заявка принята и в скором времени наш менеждер свяжется с вами.</p>
+      <button class="popup__btn  btn btn-primary btn_size-l" >Хорошо</button>
+    </section>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
